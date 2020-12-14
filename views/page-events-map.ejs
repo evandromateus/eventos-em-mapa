@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Eventos</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/page-events-map.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+</head>
+<body>
+    <header>
+        <div class="center-header">
+            <div class="filter">
+                <i class='bx bx-filter' ></i>
+                <span>Filtrar</span>
+                <i class='bx bxs-down-arrow' ></i>
+            </div>
+            <a href="/lista-de-eventos" class="change-view">
+                <i class='bx bx-list-ul' ></i>
+            </a>
+        </div>
+
+        <div class="legend-colors">
+            <div class="legend">
+                <img src="/img/marker-red.svg" alt="">
+                <span>Nos ultimos dias</span>
+            </div>
+            <div class="legend">
+                <img src="/img/marker-green.svg" alt="">
+                <span>Hoje</span>
+            </div>
+            <div class="legend">
+                <img src="/img/marker-yellow.svg" alt="">
+                <span>Nos próximos dias</span>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+        <div id="mapid"></div>
+    </main>
+
+    <a class="btn-new-event" href="/publicar-evento">Publicar Evento</a>
+
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="/scripts/page-events-map.js"></script>
+</body>
+</html>

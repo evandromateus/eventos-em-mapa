@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar um evento</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/page-forms.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+</head>
+<body>
+    <header>
+        <div class="center-header">
+            <span>Publicar evento</span>
+            <a href="/" class="change-view">
+                <i class='bx bx-map-alt'></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="page-forms">
+            
+
+            <form>
+                <h1>Cadastrar evento</h1>
+                <h2>Preencha com as informações do evento</h2>
+
+                <hr>
+
+                <h2>Clique em um ponto do mapa para adicionar a localização</h2>
+
+                <div id="mapid"></div>
+
+                <label for="name-event">Nome</label>
+                <i class='bx bx-purchase-tag-alt'></i>
+                <input type="text" name="name-event" id="name-event" placeholder="Digite o nome do evento">
+
+                <label for="description">Descrição</label>
+                <textarea name="description" id="description" placeholder="Descrição do evento"></textarea>
+
+                <label for="address">Endereço</label>
+                <i class='bx bxs-map'></i>
+                <input type="text" name="address" id="address" placeholder="Endereço onde será realizado">
+
+                <div class="small-input">
+                    <div>
+                        <label>Data</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+
+                    <div>
+                        <label>Horário</label>
+                        <input type="time" name="time" id="time">
+                    </div>
+                </div>
+
+                <div class="small-input">
+                    <div>
+                        <label>Tipo de Evento</label>
+                        <i class='bx bxs-flag-alt'></i>
+                        <select name="category" id="category">
+                            <option>Selecione</option>
+                            <option>Festa</option>
+                            <option>Futebol</option>
+                            <option>Ciclismo</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="price">Entrada</label>
+                        <i class='bx bx-money' ></i>
+                        <input type="number" name="price" id="price" placeholder="Preço">
+                    </div>
+                </div>
+
+                <label>Imagem</label>
+                <label id="file" for="img">Escolha uma imagem</label>
+                <input type="file" id="img">
+
+                <label for="video">Vídeo Informativo</label>
+                <i class='bx bxl-youtube'></i>
+                <input type="text" id="video" placeholder="Insira o link do vídeo do youtube">
+
+                <label for="wpp">Whatsapp</label>
+                <i class='bx bxl-whatsapp' ></i>
+                <input type="number" id="wpp" placeholder="Whatsapp para contato">
+
+                <button>Publicar</button>
+            </form>
+
+    </main>
+
+
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+    <script src="/scripts/page-new-event.js"></script>
+
+</body>
+</html>

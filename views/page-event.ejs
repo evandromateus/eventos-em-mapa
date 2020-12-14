@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Evento</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/page-event.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+</head>
+<body>
+
+    <header>
+        <div class="center-header">
+            <span>Informações do Evento</span>
+            <a href="/" class="change-view">
+                <i class='bx bx-map-alt'></i>
+            </a>
+        </div>
+    </header>
+
+    <main id="page-event">
+        <div class="info-container">
+            <h1>Palestra sobre tecnologia</h1>
+            <div class="subtitle">
+                <h3>Evento de Tecnologia - Entrada Gratuita</h3>
+                <h2>19/08 - 18:30</h2>
+            </div>
+            
+
+            <hr>
+
+            <img src="https://source.unsplash.com/random" alt="">
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum odit rem possimus? Veniam, quidem ratione tempora, facilis expedita, dolor autem quo obcaecati quam aspernatur aliquam. In necessitatibus nihil praesentium.</p>
+
+            <span>Vídeo Informativo</span>
+            <div class="video"></div>
+
+            <hr>
+
+            <div id="mapid"></div>
+            <span>Rua Imagine o nome de uma rua, 355</span>
+
+            <button><i class='bx bxl-whatsapp' ></i>Entrar em contato</button>
+
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="/scripts/page-event.js"></script>
+    
+</body>
+</html>
