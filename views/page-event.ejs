@@ -26,10 +26,10 @@
 
     <main id="page-event">
         <div class="info-container">
-            <h1>Palestra sobre tecnologia</h1>
+            <h1><%= event.name %></h1>
             <div class="subtitle">
-                <h3>Evento de Tecnologia - Entrada Gratuita</h3>
-                <h2>19/08 - 18:30</h2>
+                <h3><%= event.category %> - Entrada Gratuita</h3>
+                <h2>19/08 - <%= event.time %></h2>
             </div>
             
 
@@ -37,7 +37,7 @@
 
             <img src="https://source.unsplash.com/random" alt="">
 
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum odit rem possimus? Veniam, quidem ratione tempora, facilis expedita, dolor autem quo obcaecati quam aspernatur aliquam. In necessitatibus nihil praesentium.</p>
+            <p><%= event.description %></p>
 
             <span>Vídeo Informativo</span>
             <div class="video"></div>
@@ -45,7 +45,7 @@
             <hr>
 
             <div id="mapid"></div>
-            <span>Rua Imagine o nome de uma rua, 355</span>
+            <span><%= event.address %></span>
 
             <button><i class='bx bxl-whatsapp' ></i>Entrar em contato</button>
 

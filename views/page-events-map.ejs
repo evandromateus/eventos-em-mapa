@@ -44,9 +44,23 @@
 
     <main>
         <div id="mapid"></div>
+        <div class="events">
+
+            <% events.forEach(event => { %>
+                <span hidden
+                    data-id="<%= event.id %>"
+                    data-name="<%= event.name %>"
+                    data-category="<%= event.category %>"
+                    data-lat="<%= event.lat %>"
+                    data-lng="<%= event.lng %>"
+                ></span>
+            <% }) %>
+
+        </div>
     </main>
 
     <a class="btn-new-event" href="/publicar-evento">Publicar Evento</a>
+
 
 
 

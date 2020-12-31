@@ -26,7 +26,7 @@
     <main class="page-forms">
             
 
-            <form>
+            <form method="POST" action="cadastrar">
                 <h1>Cadastrar evento</h1>
                 <h2>Preencha com as informações do evento</h2>
 
@@ -35,10 +35,12 @@
                 <h2>Clique em um ponto do mapa para adicionar a localização</h2>
 
                 <div id="mapid"></div>
+                <input type="hidden" name="lat">
+                <input type="hidden" name="lng">
 
                 <label for="name-event">Nome</label>
                 <i class='bx bx-purchase-tag-alt'></i>
-                <input type="text" name="name-event" id="name-event" placeholder="Digite o nome do evento">
+                <input type="text" name="name" id="name" placeholder="Digite o nome do evento">
 
                 <label for="description">Descrição</label>
                 <textarea name="description" id="description" placeholder="Descrição do evento"></textarea>
