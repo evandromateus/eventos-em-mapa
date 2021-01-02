@@ -63,7 +63,6 @@ app.post("/cadastrar", async (req, res) => {
 
 app.get("/evento/:id", async (req, res) => {
     let event = await EventsService.GetById(req.params.id)
-    console.log(req.params.id)
     res.render('page-event', {event})
 })
 

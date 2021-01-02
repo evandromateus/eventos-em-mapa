@@ -6,23 +6,25 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Propriedades do ícone
 const icon = L.icon({
-    iconUrl: "./img/marker.svg",
+    iconUrl: "/img/marker.svg",
     iconSize: [50, 75],
     iconAnchor: [22, 59],
-    popupAnchor: [0, -50]
-  });
+    popupAnchor: [164, 15]
+  })
 
 
 // Essa função espera receber do banco de dados o id, name, lat, lng para adicionar o marcador e direcionar a página de informações
-function addMarker({id, name, lat, lng}){
+function addMarker({id, name, date, hour, category, lat, lng}){
+
+  let popupContent = `<div><h4>${name}</h4> <span>${category}</span> <br> <span>${date} - ${hour}</span></div> <a href="/evento/${id}"><i class='bx bx-right-arrow-circle'></i></a>`
 
   // Propriedades do popup
   const popup = L.popup({
     closeButton: false,
     className: 'map-popup',
     minWidth: 240,
-    minHeight: 240
-  }).setContent(`${name}`)
+    minHeight: 300
+  }).setContent(popupContent)
 
   // Criando o marcador com base na latitude e longitude recebidas do banco de dados
   L.marker([lat, lng], {icon})
@@ -41,6 +43,9 @@ eventsSpan.forEach(span => {
   const event = {
     id: span.dataset.id,
     name: span.dataset.name,
+    date: span.dataset.date,
+    hour: span.dataset.time,
+    category: span.dataset.category,
     lat: span.dataset.lat,
     lng: span.dataset.lng
   }
