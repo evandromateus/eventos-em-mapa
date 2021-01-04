@@ -37,7 +37,6 @@ class EventsService{
         events.forEach(event => {
             eventsCard.push( EventFactory.Build(event) )
         })
-
         return eventsCard
     }
 
