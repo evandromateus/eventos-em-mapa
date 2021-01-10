@@ -24,8 +24,8 @@ app.get("/lista-de-eventos", async (req, res) => {
     res.render('page-events-list', {events})
 })
 
-app.get("/login", (req, res) => {
-    res.render('page-login')
+app.get("/entrar", (req, res) => {
+    res.render('page-auth')
 })
 
 app.get("/criar-conta", (req, res) => {

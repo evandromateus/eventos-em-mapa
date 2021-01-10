@@ -13,34 +13,23 @@
    crossorigin=""/>
 </head>
 <body>
-    <header>
-        <div class="center-header">
-            <div class="filter">
-                <i class='bx bx-filter' ></i>
-                <span>Filtrar</span>
-                <i class='bx bxs-down-arrow' ></i>
-            </div>
-            <a href="/lista-de-eventos" class="change-view">
-                <i class='bx bx-list-ul' ></i>
-            </a>
-        </div>
+    
+    <%- include ('partials/header.ejs')%>
 
-        <div class="legend-colors">
-            <div class="legend">
-                <img src="/img/marker-red.svg" alt="">
-                <span>Nos ultimos dias</span>
-            </div>
-            <div class="legend">
-                <img src="/img/marker-green.svg" alt="">
-                <span>Hoje</span>
-            </div>
-            <div class="legend">
-                <img src="/img/marker-yellow.svg" alt="">
-                <span>Nos próximos dias</span>
-            </div>
+    <div class="legend-colors">
+        <div class="legend">
+            <img src="/img/marker-red.svg" alt="">
+            <span>Nos ultimos dias</span>
         </div>
-
-    </header>
+        <div class="legend">
+            <img src="/img/marker-green.svg" alt="">
+            <span>Hoje</span>
+        </div>
+        <div class="legend">
+            <img src="/img/marker-yellow.svg" alt="">
+            <span>Nos próximos dias</span>
+        </div>
+    </div>
 
     <main>
         <div id="mapid"></div>
@@ -52,7 +41,6 @@
                     data-name="<%= event.name %>"
                     data-date="<%= event.date %>"
                     data-time="<%= event.time %>"
-                    data-fulldate="<%= event.fullDate %>"
                     data-category="<%= event.category %>"
                     data-lat="<%= event.lat %>"
                     data-lng="<%= event.lng %>"
@@ -62,14 +50,35 @@
         </div>
     </main>
 
-    <a class="btn-new-event" href="/publicar-evento">Publicar Evento</a>
+    <button class="btn-new-event">Publicar Evento</button>
 
 
 
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-   <script src="/scripts/page-events-map.js"></script>
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="/scripts/page-events-map.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="/scripts/firebaseConfig.js"></script>
+
+   <script>
+
+    let btnNewEvent = document.querySelector('.btn-new-event')
+
+    btnNewEvent.addEventListener('click', () => {
+        firebase.auth().onAuthStateChanged(user => {
+            if(user){
+                console.log("Usuário logado: " + user.email)
+                location.replace('/publicar-evento')
+            }else{
+                alert('Você não está autenticado. Entre ou cadastre-se.')
+                location.replace('/entrar')
+            }
+        })
+    })
+
+   </script>
 </body>
 </html>

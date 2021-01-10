@@ -12,7 +12,7 @@ class EventFactory{
         let date = day + "/" + month + "/" + year
         let time = hour + ":" + minutes
 
-        let fullDate = new Date(year,month-1, day, hour, minutes, 0, 0)
+        //let fullDate = new Date(year,month-1, day, hour, minutes, 0, 0)
 
         
 
@@ -21,7 +21,6 @@ class EventFactory{
             name: simpleEvent.name,
             date: date,
             time: time,
-            fullDate: fullDate,
             category: simpleEvent.category,
             description: simpleEvent.description,
             lat: simpleEvent.lat,

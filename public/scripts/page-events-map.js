@@ -6,9 +6,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 
 // Essa função espera receber do banco de dados o id, name, lat, lng para adicionar o marcador e direcionar a página de informações
-function addMarker({id, name, date, hour, fullDate, category, lat, lng}){
+function addMarker({id, name, date, hour, category, lat, lng}){
 
-  console.log(fullDate)
    // Propriedades do popup
   let popupContent = `<div><h4>${name}</h4> <span>${category}</span> <br> <span>${date} - ${hour}</span></div> <a href="/evento/${id}"><i class='bx bx-right-arrow-circle'></i></a>`
   
@@ -19,16 +18,7 @@ function addMarker({id, name, date, hour, fullDate, category, lat, lng}){
     minHeight: 300
   }).setContent(popupContent)
 
-  // Definindo a cor do marcador com base na data
-  let color
-
-  if(aconteceu){
-    color = "red"
-  }else if(hoje){
-    color = "green"
-  }else if(vaiAcontecer){
-    color = "yellow"
-  }
+  color = colorByDate(date)
 
   const icon = L.icon({
     iconUrl: `/img/marker${category}-${color}.svg`,
@@ -37,11 +27,42 @@ function addMarker({id, name, date, hour, fullDate, category, lat, lng}){
     popupAnchor: [164, 15]
   })
 
-
   // Criando o marcador com base na latitude e longitude recebidas do banco de dados
   L.marker([lat, lng], {icon})
   .addTo(map)
   .bindPopup(popup)
+
+}
+
+  // Definindo a cor do marcador com base na data
+function colorByDate(date){
+  
+  let days = 1000*60*60*24*10 // 10 dias em milisegundos
+  let todayDate = new Date()
+
+  let day = todayDate.getDate().toString().padStart(2, '0')
+  let month = (todayDate.getMonth()+1).toString().padStart(2, '0') 
+  let year = todayDate.getFullYear()
+  let today = day+"/" + month + "/" + year
+
+  let parts = date.split('/')
+  let dateEvent = new Date(parts[2], parts[1] -1, parts[0])
+  let diff = dateEvent.getTime() - todayDate.getTime()
+
+
+  let color
+
+  if(date == today){
+    color = "green"
+  }else if(diff < days && dateEvent > todayDate){
+    color = "yellow"
+  }else if(dateEvent < todayDate){
+    color = "red"
+  }else{
+    color = "blue"
+  }
+
+  return color
 
 }
 
@@ -57,7 +78,6 @@ eventsSpan.forEach(span => {
     name: span.dataset.name,
     date: span.dataset.date,
     hour: span.dataset.time,
-    fullDate: span.dataset.fulldate,
     category: span.dataset.category,
     lat: span.dataset.lat,
     lng: span.dataset.lng

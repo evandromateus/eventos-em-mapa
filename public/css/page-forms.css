@@ -1,61 +1,68 @@
 .page-forms{
     max-width: 100vw;
-    margin-top: 100px;
+    min-height: 100vh;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-form{
+.form{
     width: 100%;
     max-width: 550px;
     padding: 10px;
 }
 
-form h1, h2{
-    text-align: center;
-    margin-bottom: 10px;
+.form.new-event{
+    margin-top: 100px;
 }
 
-form hr{
+.form h1, h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form hr{
     margin: 20px 0;
 }
 
-form{
+.form{
     margin: 20px auto;
 }
 
-form h2{
+.form h2{
     color: #1B77AB;
 }
 
-form label{
-    font-size: 1.8rem;
+.form label{
+    font-size: 2rem;
     font-weight: 700;
 
     margin-bottom: 5px;
     display: block;
 }
 
-form input{
+.form input{
     width: 100%;
-    height: 45px;
-    padding: 0px 5px 0 40px;
+    height: 50px;
+    padding: 0px 5px 0 50px;
     margin-bottom: 15px;
     background: #F2F2F2;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
+
+    font-size: 1.8rem;
 }
 
-form i{
-    font-size: 20px;
+.form i{
+    font-size: 2rem;
     position: absolute;
-    padding: 12px;
+    padding: 15px;
     color: #4F4F4F;
 }
 
-form a{
+.form a{
     font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
@@ -66,20 +73,27 @@ form a{
     display: block;
 }
 
-form button{
+.page-forms button{
     width: 100%;
-    height: 50px;
+    height: 45px;
     background: linear-gradient(180deg, #07C1DB 0%, rgba(255, 255, 255, 0) 100%), #1B77AB;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 700;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
     color: #FFF;
+
+    cursor: pointer;
 }
 
-form input[type="file"]{
+.page-forms button:last-child{
+    background: linear-gradient(0deg, #00B4D8, #00B4D8), #0096C7;
+}
+
+.form input[type="file"]{
     display: none;
 }
 
@@ -145,8 +159,8 @@ textarea{
 }
 
 @media screen and (min-width: 768px){
-    form{
-        max-width: 800px;
+    .form{
+        max-width: 600px;
         padding: 40px;
         border: 1px solid #E0E0E0;
         border-radius: 10px;
