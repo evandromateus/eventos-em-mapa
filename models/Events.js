@@ -11,7 +11,13 @@ const events = new mongoose.Schema({
     category: String,
     price: String,
     image: String,
-    video: String
+    video: String,
+    whatsapp: String,
+    author: {
+        uid: String,
+        username: String
+    },
+    finished: Boolean
 })
 
 module.exports = events

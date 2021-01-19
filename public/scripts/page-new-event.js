@@ -1,6 +1,6 @@
 var map = L.map('mapid', { zoomControl: false }).setView([-23.5893795, -48.0427597], 13);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
 
 
 // Propriedades do icone de marcação

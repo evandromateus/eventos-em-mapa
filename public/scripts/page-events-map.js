@@ -1,7 +1,7 @@
 // Criando o mapa
 var map = L.map('mapid', { zoomControl: false }).setView([-23.5893795, -48.0427597], 14);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
 
 
 
@@ -22,9 +22,9 @@ function addMarker({id, name, date, hour, category, lat, lng}){
 
   const icon = L.icon({
     iconUrl: `/img/marker${category}-${color}.svg`,
-    iconSize: [50, 75],
+    iconSize: [40, 60],
     iconAnchor: [22, 59],
-    popupAnchor: [164, 15]
+    popupAnchor: [155, 15]
   })
 
   // Criando o marcador com base na latitude e longitude recebidas do banco de dados

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +10,38 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    
+
     <%- include ('partials/header.ejs')%>
 
     <main class="page-forms">
 
-
+        <div class="form">
             <form>
 
                 <h1>Entre ou cadastre-se</h1>
 
-                <label for="name">Nome</label>
-                <i class='bx bxs-user' ></i>
-                <input type="text" name="name" id="name" placeholder="Digite seu nome">
                 <label for="email">Email</label>
                 <i class='bx bx-mail-send'></i>
-                <input type="email" name="email" id="email" placeholder="email@example.com">
-                <label for="pwd">Senha</label>
+                <input type="email" name="email" id="email" placeholder="email@exemplo.com">
+
+                <label for="password">Senha</label>
                 <i class='bx bx-lock'></i>
-                <input type="password" name="pwd" id="pwd" placeholder="********">
-                <a href="/login">Ou entre em uma conta já existente</a>
-                <button>Criar conta</button>
-                
+                <input type="password" name="pwd" id="password" placeholder="********">
+
             </form>
 
+            <a href="/criar-conta">Ou entre em uma conta já existente</a>
+            <button id="login">Entrar</button>
+
+        </div>
+
     </main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="/scripts/firebaseConfig.js"></script>
+    <script src="/scripts/page-auth.js"></script>
 
 </body>
 </html>

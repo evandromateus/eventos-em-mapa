@@ -15,16 +15,25 @@
 }
 
 .form.new-event{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
-.form h1, h2{
+.form h1{
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    color: #4F4F4F;
+}
+
+.form h2{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .form hr{
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .form{
@@ -39,6 +48,8 @@
     font-size: 2rem;
     font-weight: 700;
 
+    color: #4F4F4F;
+
     margin-bottom: 5px;
     display: block;
 }
@@ -51,8 +62,9 @@
     background: #F2F2F2;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
+    outline-color: #cecece;
 
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .form i{
@@ -117,9 +129,12 @@ textarea{
     padding: 10px;
     margin-bottom: 15px;
 
+    font-size: 1.8rem;
+
     background: #F2F2F2;
     border: 1px solid #E0E0E0;
     border-radius: 5px;
+    outline-color: #cecece;
 }
 
 #mapid{
@@ -141,21 +156,25 @@ textarea{
 }
 
 .small-input input{
-    padding: 0 8px;
+    padding: 0;
+    color: #828282;
 }
 
-.small-input input[type="number"]{
+.small-input input[type="text"]{
     padding: 0px 5px 0 40px;
 }
 
 .small-input select{
     width: 100%;
-    height: 45px;
+    height: 50px;
     padding: 0px 5px 0 40px;
 
     background: #F2F2F2;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
+    outline-color: #cecece;
+    color: #828282;
+
 }
 
 @media screen and (min-width: 768px){

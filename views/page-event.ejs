@@ -16,31 +16,33 @@
 <body>
 
     <%- include ('partials/header.ejs')%>
-    
     <main id="page-event">
         <div class="info-container">
             <h1><%= event.name %></h1>
             <div class="subtitle">
-                <h3><%= event.category %> - Entrada Gratuita</h3>
-                <h2>19/08 - <%= event.time %></h2>
+                <h3><%= event.category %> - Entrada: <%= event.price == 0 || event.price == null ? 'Gratuita' : 'R$'+ event.price %></h3>
+                <h2><%= (event.date.getDate()+1)+'/'+event.date.getMonth()+1 %> - <%= event.time %></h2>
             </div>
-            
 
             <hr>
 
-            <img src="https://source.unsplash.com/random" alt="">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="">
 
             <p><%= event.description %></p>
 
             <span>Vídeo Informativo</span>
-            <div class="video"></div>
+            <iframe width="100%" height="300" src="<%= event.video %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             <hr>
 
             <div id="mapid"></div>
-            <span><%= event.address %></span>
-
+            <span class="address"><%= event.address %></span>
+            <span class="author">Publicado por <%= event.author.username %></span>
             <button><i class='bx bxl-whatsapp' ></i>Entrar em contato</button>
+
+            <input type="hidden" id="lat" value="<%= event.lat %>">
+            <input type="hidden" id="lng" value="<%= event.lng %>">
+            <input type="hidden" id="category" value="<%= event.category %>">
 
         </div>
     </main>

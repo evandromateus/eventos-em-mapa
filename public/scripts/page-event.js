@@ -1,3 +1,17 @@
-var map = L.map('mapid', { zoomControl: false }).setView([-23.5893795, -48.0427597], 13);
+let lat = document.querySelector('#lat')
+let lng = document.querySelector('#lng')
+let category = document.querySelector('#category')
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var map = L.map('mapid', { zoomControl: false }).setView([lat.value, lng.value], 15);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
+
+const icon = L.icon({
+    iconUrl: `/img/marker${category.value}-blue.svg`,
+    iconSize: [40, 60],
+    iconAnchor: [22, 59],
+    popupAnchor: [155, 15]
+  })
+
+  L.marker([lat.value, lng.value], {icon})
+  .addTo(map)

@@ -1,11 +1,10 @@
 #mapid{
-    width: 100vw;
-    height: 100vh;
+    height: 90vh;
 }
 
 .leaflet-popup-content-wrapper{
     background: #073B4C !important;
-    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.1);
 }
 
 .leaflet-popup-tip{
@@ -13,6 +12,8 @@
 }
 
 .leaflet-popup-content{
+    font-size: 1.2rem;
+
     color: #FFF;
 
     margin: 5px 10px !important;
@@ -35,7 +36,7 @@
 
 .leaflet-popup-content i{
     color: #FFF;
-    font-size: 32px;
+    font-size: 3.2rem;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
@@ -55,7 +56,7 @@
     align-items: center;
 
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 50%;
     transform: translate(-50%);
     z-index: 1000;

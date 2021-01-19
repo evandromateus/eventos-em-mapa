@@ -25,11 +25,11 @@ app.get("/lista-de-eventos", async (req, res) => {
 })
 
 app.get("/entrar", (req, res) => {
-    res.render('page-auth')
+    res.render('page-login')
 })
 
 app.get("/criar-conta", (req, res) => {
-    res.render('page-sign-in')
+    res.render('page-sign-up')
 })
 
 app.get("/publicar-evento", (req, res) => {
@@ -48,7 +48,10 @@ app.post("/cadastrar", async (req, res) => {
         category: req.body.category,
         price: req.body.price,
         image: req.body.image,
-        video: req.body.video
+        video: req.body.video,
+        whatsapp: req.body.whatsapp,
+        uid: req.body.uid,
+        username: req.body.username
     }
 
     let status = await EventsService.Create(event)

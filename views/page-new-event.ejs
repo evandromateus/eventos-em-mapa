@@ -32,6 +32,8 @@
                 <div id="mapid"></div>
                 <input type="hidden" name="lat">
                 <input type="hidden" name="lng">
+                <input type="hidden" name="uid" id="uid">
+                <input type="hidden" name="username" id="username">
 
                 <label for="name-event">Nome</label>
                 <i class='bx bx-purchase-tag-alt'></i>
@@ -62,7 +64,6 @@
                         <i class='bx bxs-flag-alt'></i>
                         <select name="category" id="category">
                             <option>Selecione</option>
-                            <option>Festa</option>
                             <option>Futebol</option>
                             <option>Ciclismo</option>
                         </select>
@@ -71,7 +72,7 @@
                     <div>
                         <label for="price">Entrada</label>
                         <i class='bx bx-money' ></i>
-                        <input type="number" name="price" id="price" placeholder="Preço">
+                        <input type="text" name="price" id="price" class="price" placeholder="Preço">
                     </div>
                 </div>
 
@@ -81,11 +82,11 @@
 
                 <label for="video">Vídeo Informativo</label>
                 <i class='bx bxl-youtube'></i>
-                <input type="text" id="video" placeholder="Insira o link do vídeo do youtube">
+                <input type="text" name="video" id="video" placeholder="Insira o link do vídeo do youtube">
 
                 <label for="wpp">Whatsapp</label>
                 <i class='bx bxl-whatsapp' ></i>
-                <input type="number" id="wpp" placeholder="Whatsapp para contato">
+                <input type="text" name="whatsapp" id="wpp" class="wpp" placeholder="Whatsapp para contato">
 
                 <button>Publicar</button>
             </form>
@@ -100,17 +101,45 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+
     <script src="/scripts/page-new-event.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
     <script src="/scripts/firebaseConfig.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="/scripts/jquery.mask.min.js"></script>
 
     <script>
+        
+
+        let userId = document.querySelector('#uid')
+        let username = document.querySelector('#username')
+
         firebase.auth().onAuthStateChanged(user => {
             if(!user){
                 location.replace('/')
+            }else{
+                userId.value = user.uid
+                username.value = user.displayName
+                console.log("UsuarioID: "+userId.value)
+                console.log("Nome: "+username.value)
             }
         })
+
+
+
+        var maskBehavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+        options = {onKeyPress: function(val, e, field, options) {
+                field.mask(maskBehavior.apply({}, arguments), options);
+            }
+        };
+
+        $('.wpp').mask(maskBehavior, options)
+        $('.price').mask('000.000.000.000.000,00', {reverse: true})
     </script>
 
 </body>

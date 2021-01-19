@@ -16,13 +16,9 @@ a{
 }
 
 header{
-    width: 100vw;
+    max-width: 100vw;
     height: 60px;
-    background: linear-gradient(180deg, #07C1DB 0%, rgba(255, 255, 255, 0) 100%), #1B77AB;
-
-    position: fixed;
-    top: 0px;
-    z-index: 1000;
+    background: linear-gradient(180deg, #07C1DB 0%, rgba(255, 255, 255, 0) 100%), #0085D0;
 }
 
 .center-header{

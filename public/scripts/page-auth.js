@@ -9,12 +9,14 @@ btnRegister.addEventListener('click', () => {
     auth.createUserWithEmailAndPassword(inputEmail.value, inputPassword.value).then(res => {
 
         const user = firebase.auth().currentUser
-        
+
         user.updateProfile({
             displayName: inputName.value
         })
 
         console.log(res)
+        alert("Bem vindo. Você está cadastrado.")
+        location.replace('/')
 
     }).catch(error => {
         console.log(error.code)
