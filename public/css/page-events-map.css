@@ -73,7 +73,7 @@
 }
 
 .legend span{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #FFF;
 }
@@ -102,4 +102,111 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+
+    background: rgba(0, 0, 0, .5);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.display{
+    display: flex;
+}
+
+.modal{
+    width: 310px;
+    border-radius: 10px;
+    padding: 20px;
+    background: #073B4C;
+}
+
+.modal h1{
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.modal select{
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    padding-left: 40px;
+
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+
+    color: #FFF;
+    background: linear-gradient(180deg, #22AEFD 0%, #006299 100%);
+}
+
+option{
+    background-color: #FFF;
+    color: black;
+}
+
+.bxs-flag-alt{
+    font-size: 2rem;
+    position: absolute;
+    padding: 15px;
+    color: #FFF;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.modal button{
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+
+    color: #FFF;
+    background: linear-gradient(180deg, #2DC7FF 0%, rgba(45, 199, 255, 0) 100%), #00ABE7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal button > i{
+    margin-right: 8px;
+}
+
+@keyframes modal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.display .modal {
+    animation: modal .3s;
+}
+
+@media screen and (min-width: 768px){
+    .legend-colors{
+        width: 350px;
+    }
+    .legend-colors span{
+        font-size: 1.3rem;
+    }
 }

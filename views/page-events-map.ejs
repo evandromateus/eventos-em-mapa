@@ -14,12 +14,27 @@
 </head>
 <body>
     
-    <%- include ('partials/header.ejs')%>
+    <header>
+        <nav class="center-header">
+            <div class="nav-btn" id="filter">
+                <i class='bx bx-slider-alt'></i>
+            </div>
+    
+            <div class="change-view">
+                <a href="/" class="nav-btn">
+                    <i class='bx bx-map-alt'></i>
+                </a>
+                <a href="/lista-de-eventos" class="nav-btn">
+                    <i class='bx bx-list-ul' ></i>
+                </a>
+            </div>
+        </nav>
+    </header>
 
     <div class="legend-colors">
         <div class="legend">
             <img src="/img/marker-red.svg" alt="">
-            <span>Nos ultimos dias</span>
+            <span>Aconteceu</span>
         </div>
         <div class="legend">
             <img src="/img/marker-green.svg" alt="">
@@ -27,7 +42,11 @@
         </div>
         <div class="legend">
             <img src="/img/marker-yellow.svg" alt="">
-            <span>Nos próximos dias</span>
+            <span>Em breve</span>
+        </div>
+        <div class="legend">
+            <img src="/img/marker-blue.svg" alt="">
+            <span>Evento Futuro</span>
         </div>
     </div>
 
@@ -52,7 +71,22 @@
 
     <button class="btn-new-event">Publicar Evento</button>
 
-
+    <div id="modal-container" class="modal-container">
+        <div class="modal">
+            <h1>Procure por eventos de seu interesse</h1>
+            <form action="filter" method="GET">
+                <i class='bx bxs-flag-alt'></i>
+                <select name="category">
+                    <option>Tipo de evento</option>
+                    <option>Futebol</option>
+                    <option>Tecnologia</option>
+                    <option>Ciclismo</option>
+                    <option>Beneficente</option>
+                </select>
+                <button><i class='bx bx-slider-alt'></i>Filtrar</button>
+            </form>
+        </div>
+    </div>
 
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

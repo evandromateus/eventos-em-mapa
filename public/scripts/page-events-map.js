@@ -86,3 +86,19 @@ eventsSpan.forEach(span => {
   addMarker(event)
 
 })
+
+// Modal
+function startModal(modalId){
+  const modal = document.getElementById(modalId)
+  if(modal){
+    modal.classList.add('display')
+    modal.addEventListener('click', (e) => {
+      if(e.target.id == modalId){
+        modal.classList.remove('display')
+      }
+    })
+  }
+}
+
+const filterBtn = document.querySelector('#filter')
+filterBtn.addEventListener('click', () => startModal('modal-container'))

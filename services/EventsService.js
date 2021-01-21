@@ -17,7 +17,7 @@ class EventsService{
             time: event.time,
             category: event.category,
             price: event.price,
-            image: event.image,
+            image: event.image.path,
             video: event.video,
             whatsapp: event.whatsapp,
             author: {
@@ -68,6 +68,19 @@ class EventsService{
                 await Event.findByIdAndUpdate(event._id, {finished: true})
             }
         })
+    }
+
+    async Filter(query){
+        try {
+            let events = await Event.find({category: query})
+            let eventsCard = []
+            events.forEach(event => {
+                eventsCard.push( EventFactory.Build(event) )
+            })
+            return eventsCard
+        } catch (err) {
+            console.log(err)
+        }
     }
 
 }

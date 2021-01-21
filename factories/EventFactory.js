@@ -24,7 +24,8 @@ class EventFactory{
             category: simpleEvent.category,
             description: simpleEvent.description,
             lat: simpleEvent.lat,
-            lng: simpleEvent.lng
+            lng: simpleEvent.lng,
+            image: simpleEvent.image
         }
 
         return event

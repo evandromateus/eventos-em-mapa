@@ -7,7 +7,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').ad
 const icon = L.icon({
     iconUrl: "./img/marker.svg",
     iconSize: [50, 75],
-    iconAnchor: [22, 59]
+    iconAnchor: [25, 75]
 });
 
 // Marcador

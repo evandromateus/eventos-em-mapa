@@ -21,7 +21,7 @@
             
         <div class="form new-event">
 
-            <form method="POST" action="cadastrar">
+            <form method="POST" action="cadastrar" enctype="multipart/form-data">
                 <h1>Cadastrar evento</h1>
                 <h2>Preencha com as informações do evento</h2>
 
@@ -65,7 +65,9 @@
                         <select name="category" id="category">
                             <option>Selecione</option>
                             <option>Futebol</option>
+                            <option>Tecnologia</option>
                             <option>Ciclismo</option>
+                            <option>Beneficente</option>
                         </select>
                     </div>
 
@@ -78,7 +80,7 @@
 
                 <label>Imagem</label>
                 <label id="file" for="img">Escolha uma imagem</label>
-                <input type="file" id="img">
+                <input type="file" name="image" id="img" accept="image/*">
 
                 <label for="video">Vídeo Informativo</label>
                 <i class='bx bxl-youtube'></i>

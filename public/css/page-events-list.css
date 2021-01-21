@@ -12,8 +12,10 @@ a{
 }
 
 #events-list > h2{
+    font-size: 1.8rem;
     text-align: center;
     margin: 20px 0;
+    color: #4F4F4F;
 }
 
 .event-card{
@@ -44,8 +46,12 @@ a{
     position: relative;
 }
 
+.info-card h2{
+    color: rgb(29, 29, 29);
+}
+
 .info-card p{
-    margin-top: 10px;
+    margin-top: 5px;
     color: #4F4F4F;
 }
 
@@ -111,6 +117,7 @@ a{
     }
     .event-card p{
         font-size: 2rem;
+        margin-top: 15px;
     }
     .event-card button{
         display: flex;
