@@ -1,7 +1,6 @@
 const eventsModel = require('../models/Events')
 const mongoose = require('mongoose')
 const EventFactory = require('../factories/EventFactory')
-const events = require('../models/Events')
 
 const Event = mongoose.model("Events", eventsModel)
 
@@ -47,9 +46,8 @@ class EventsService{
     }
 
     async GetById(id){
-        try {
-            let event = await Event.findOne({'_id': id})
-            console.log(event.date)
+        try { 
+            let event = await Event.findById(id)
             return event
         } catch (err) {
             console.log(err)
@@ -80,6 +78,37 @@ class EventsService{
             return eventsCard
         } catch (err) {
             console.log(err)
+        }
+    }
+
+    async GetByUserId(uid){
+        try {
+            let events = await Event.find({'author.uid': uid})
+            let eventsCard = []
+            events.forEach(event => {
+                eventsCard.push( EventFactory.Build(event) )
+            })
+            return eventsCard
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    async Delete(id){
+        try {
+            await Event.findByIdAndDelete({'_id': id})
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    async Update(id, event){
+        try {
+            await Event.findByIdAndUpdate(id, {$set: event})
+            return true
+        } catch (err) {
+            console.log(err)
+            return false
         }
     }
 

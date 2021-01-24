@@ -1,0 +1,17 @@
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+<script src="/scripts/firebaseConfig.js"></script>
+
+<script>
+
+    let profileBtn = document.querySelector('#profile-btn')
+
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+            profileBtn.href = "/perfil/" + user.uid
+        }else{
+            profileBtn.href = "/entrar"
+        }
+    })
+
+</script>

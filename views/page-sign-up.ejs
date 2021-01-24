@@ -35,16 +35,14 @@
                 
             </form>
             
-            <a href="/login">Ou entre em uma conta já existente</a>
+            <a href="/entrar">Ou entre em uma conta já existente</a>
             <button id="register">Criar conta</button>
 
         </div>
 
     </main>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
-    <script src="/scripts/firebaseConfig.js"></script>
-    <script src="/scripts/page-auth.js"></script>
+    <%- include('partials/firebase.ejs') %>
+    <script src="/scripts/page-sign-up.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     
     <%- include ('partials/header.ejs')%>
 
-    <main id="events-list">
+    <main class="events-list">
         
         <h2>Clique em um evento para saber mais</h2>
         
@@ -25,7 +25,7 @@
                         <h2><%= event.name %></h2>
                         <span><%= event.date %></span>
                         <p><%= event.description.substring(0, 155) %>...</p>
-                        <a href="evento/<%= event.id %>"><button>Saber mais <i class='bx bx-right-arrow-alt'></i></button></a>
+                        <a href="evento/<%= event.id %>" class="more-info">Saber mais <i class='bx bx-right-arrow-alt'></i></a>
                     </div>
                 </div>
             </a>
@@ -33,6 +33,7 @@
         
     </main>
 
+    <%- include('partials/firebase.ejs') %>
 
 </body>
 </html>

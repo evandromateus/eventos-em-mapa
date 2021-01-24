@@ -1,0 +1,83 @@
+.user-info{
+    width: 310px;
+    margin: 20px auto;
+}
+
+.user-info h1{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+
+    color: #333;
+}
+
+.user-info p{
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    color: #4F4F4F;
+}
+
+.user-info button{
+    width: 85px;
+    height: 30px;
+    margin: 15px auto;
+    border-radius: 5px;
+    border: none;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+
+    color: #FFF;
+    background: #EF476F;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info button i{
+    margin-right: 5px;
+}
+
+.btn-edit-delete{
+    position: absolute;
+
+    bottom: 10px;
+}
+
+.btn-edit-delete{
+    display: flex;
+}
+
+.btn{
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+
+    color: #FFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.edit{
+    background: #06D672;
+}
+
+.btn.delete{
+    background: #F53F4A;
+}
+
+.btn i{
+    margin-right: 5px;
+}

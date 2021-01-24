@@ -21,8 +21,8 @@
             
         <div class="form new-event">
 
-            <form method="POST" action="cadastrar" enctype="multipart/form-data">
-                <h1>Cadastrar evento</h1>
+            <form method="POST" action="<%=action%>" enctype="<%= enctype %>">
+                <h1><%= title %> evento</h1>
                 <h2>Preencha com as informações do evento</h2>
 
                 <hr>
@@ -30,31 +30,35 @@
                 <h2>Clique em um ponto do mapa para adicionar a localização</h2>
 
                 <div id="mapid"></div>
-                <input type="hidden" name="lat">
-                <input type="hidden" name="lng">
+                <input type="hidden" name="lat" value="<%= event.lat %>">
+                <input type="hidden" name="lng" value="<%= event.lng %>">
                 <input type="hidden" name="uid" id="uid">
                 <input type="hidden" name="username" id="username">
 
                 <label for="name-event">Nome</label>
                 <i class='bx bx-purchase-tag-alt'></i>
-                <input type="text" name="name" id="name" placeholder="Digite o nome do evento">
+                <input type="text" name="name" id="name" placeholder="Digite o nome do evento" value="<%= event.name %>">
 
                 <label for="description">Descrição</label>
-                <textarea name="description" id="description" placeholder="Descrição do evento"></textarea>
+                <textarea name="description" id="description" placeholder="Descrição do evento"><%= event.description %></textarea>
 
                 <label for="address">Endereço</label>
                 <i class='bx bxs-map'></i>
-                <input type="text" name="address" id="address" placeholder="Endereço onde será realizado">
+                <input type="text" name="address" id="address" placeholder="Endereço onde será realizado" value="<%= event.address %>">
 
                 <div class="small-input">
                     <div>
                         <label>Data</label>
-                        <input type="date" name="date" id="date">
+                        <input 
+                        type="date"
+                        name="date"
+                        id="date"
+                        value="<%= event.date != null ? event.date.getFullYear()+'-'+(event.date.getMonth()+1).toString().padStart(2, '0')+'-'+(event.date.getDate()+1).toString().padStart(2, '0') : null %>">
                     </div>
 
                     <div>
                         <label>Horário</label>
-                        <input type="time" name="time" id="time">
+                        <input type="time" name="time" id="time" value="<%= event.time %>">
                     </div>
                 </div>
 
@@ -69,12 +73,13 @@
                             <option>Ciclismo</option>
                             <option>Beneficente</option>
                         </select>
+                        <input type="hidden" id="current-category" value="<%= event.category %>">
                     </div>
 
                     <div>
                         <label for="price">Entrada</label>
                         <i class='bx bx-money' ></i>
-                        <input type="text" name="price" id="price" class="price" placeholder="Preço">
+                        <input type="text" name="price" id="price" class="price" placeholder="Preço" value="<%= event.price %>">
                     </div>
                 </div>
 
@@ -84,13 +89,13 @@
 
                 <label for="video">Vídeo Informativo</label>
                 <i class='bx bxl-youtube'></i>
-                <input type="text" name="video" id="video" placeholder="Insira o link do vídeo do youtube">
+                <input type="text" name="video" id="video" placeholder="Insira o link do vídeo do youtube" value="<%= event.video %>">
 
                 <label for="wpp">Whatsapp</label>
                 <i class='bx bxl-whatsapp' ></i>
-                <input type="text" name="whatsapp" id="wpp" class="wpp" placeholder="Whatsapp para contato">
+                <input type="text" name="whatsapp" id="wpp" class="wpp" placeholder="Whatsapp para contato" value="<%= event.whatsapp %>">
 
-                <button>Publicar</button>
+                <button type="submit"><%= title %></button>
             </form>
 
         </div>
@@ -106,9 +111,7 @@
 
     <script src="/scripts/page-new-event.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
-    <script src="/scripts/firebaseConfig.js"></script>
+    <%- include('partials/firebase.ejs') %>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <script src="/scripts/jquery.mask.min.js"></script>
@@ -118,6 +121,8 @@
 
         let userId = document.querySelector('#uid')
         let username = document.querySelector('#username')
+        let category = document.querySelectorAll('#category option')
+        let currentCategory = document.querySelector('#current-category')
 
         firebase.auth().onAuthStateChanged(user => {
             if(!user){
@@ -125,12 +130,8 @@
             }else{
                 userId.value = user.uid
                 username.value = user.displayName
-                console.log("UsuarioID: "+userId.value)
-                console.log("Nome: "+username.value)
             }
         })
-
-
 
         var maskBehavior = function (val) {
         return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -142,6 +143,13 @@
 
         $('.wpp').mask(maskBehavior, options)
         $('.price').mask('000.000.000.000.000,00', {reverse: true})
+
+        category.forEach(option => {
+            if(option.value == currentCategory.value){
+                option.setAttribute('selected', 'selected')
+            }
+        })
+
     </script>
 
 </body>

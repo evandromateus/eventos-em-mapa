@@ -16,10 +16,15 @@
     
     <header>
         <nav class="center-header">
-            <div class="nav-btn" id="filter">
-                <i class='bx bx-slider-alt'></i>
+            <div class="change-view">
+                <div class="nav-btn" id="filter">
+                    <i class='bx bx-slider-alt'></i>
+                </div>
+                <a class="nav-btn" id="profile-btn">
+                    <i class='bx bx-user-circle'></i>
+                </a>
             </div>
-    
+
             <div class="change-view">
                 <a href="/" class="nav-btn">
                     <i class='bx bx-map-alt'></i>
@@ -69,7 +74,7 @@
         </div>
     </main>
 
-    <button class="btn-new-event">Publicar Evento</button>
+    <a class="btn-new-event">Publicar Evento</a>
 
     <div id="modal-container" class="modal-container">
         <div class="modal">
@@ -88,31 +93,25 @@
         </div>
     </div>
 
-
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="/scripts/page-events-map.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
-    <script src="/scripts/firebaseConfig.js"></script>
+    <%- include('partials/firebase.ejs') %>
 
    <script>
 
     let btnNewEvent = document.querySelector('.btn-new-event')
 
-    btnNewEvent.addEventListener('click', () => {
         firebase.auth().onAuthStateChanged(user => {
             if(user){
-                console.log("Usuário logado: " + user.email)
-                location.replace('/publicar-evento')
+                btnNewEvent.href = "/publicar-evento"
             }else{
-                alert('Você não está autenticado. Entre ou cadastre-se.')
-                location.replace('/entrar')
+                btnNewEvent.href = "/entrar"
             }
         })
-    })
 
    </script>
+
 </body>
 </html>
